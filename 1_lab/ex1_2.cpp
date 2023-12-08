@@ -12,15 +12,16 @@ int main() {
     int year;
 
     // Ввод года
-    std::cout << "Введите год: ";
+    std::cout << "Enter the year: ";
     std::cin >> year;
 
     // Проверка на високосность
     if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-        std::cout << year << " год является високосным.\n";
+        std::cout << year << " year is a leap year.\n";
     } else {
-        std::cout << year << " год не является високосным.\n";
+        std::cout << year << " year is not a leap year.\n";
     }
 
+    system("pause");
     return 0;
 }

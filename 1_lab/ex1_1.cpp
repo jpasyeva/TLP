@@ -9,25 +9,27 @@
 #include <iostream>
 
 int main() {
+
     // Объявление переменных для хранения введенных чисел
     double number1, number2;
 
     // Ввод первого числа
-    std::cout << "Введите первое число: ";
+    std::cout << "Enter the first number: ";
     std::cin >> number1;
 
     // Ввод второго числа
-    std::cout << "Введите второе число: ";
+    std::cout << "Enter the second number: ";
     std::cin >> number2;
 
     // Сравнение чисел и вывод результата
     if (number1 > number2) {
-        std::cout << "Первое число больше второго\n";
+        std::cout << "The first number is greater than the second\n";
     } else if (number1 < number2) {
-        std::cout << "Второе число больше первого\n";
+        std::cout << "The second number is greater than the first\n";
     } else {
-        std::cout << "Введенные числа равны\n";
+        std::cout << "The entered numbers are equal\n";
     }
 
+    system("pause");
     return 0;
 }
