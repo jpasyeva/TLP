@@ -39,12 +39,12 @@ bool compareByAverageGrade(const Student& s1, const Student& s2) {
 
 // Функция для вывода студентов с оценками 4 и 5
 void printHighAchievers(const Student students[], int size) {
-    std::cout << "Студенты с оценками 4 или 5:\n";
+    std::cout << "Students with grades 4 or 5:\n";
     for (int i = 0; i < size; ++i) {
         if (students[i].grades[0] >= 4 && students[i].grades[1] >= 4 &&
             students[i].grades[2] >= 4 && students[i].grades[3] >= 4 &&
             students[i].grades[4] >= 4) {
-            std::cout << "Фамилия: " << students[i].name << "\tНомер группы: " << students[i].groupNumber << "\n";
+            std::cout << "Lastname: " << students[i].name << "\tGroup number: " << students[i].groupNumber << "\n";
         }
     }
 }
@@ -52,29 +52,30 @@ void printHighAchievers(const Student students[], int size) {
 int main() {
     // Создание массива структур Student
     Student students[10] = {
-        {"Иванов А.И.", 1, 4, 5, 4, 3, 5},
-        {"Петров Б.В.", 2, 5, 5, 4, 5, 5},
-        {"Сидоров В.А.", 1, 4, 4, 3, 4, 5},
-        {"Козлов Г.Г.", 2, 3, 4, 5, 3, 4},
-        {"Смирнов Д.С.", 1, 5, 5, 5, 5, 5},
-        {"Андреев Е.П.", 2, 4, 3, 4, 4, 5},
-        {"Никитин Ж.В.", 1, 5, 4, 5, 4, 5},
-        {"Захаров И.И.", 2, 4, 3, 3, 4, 4},
-        {"Григорьев К.С.", 1, 3, 4, 5, 4, 3},
-        {"Борисов Л.А.", 2, 5, 5, 4, 5, 5}
+        {"Smith A.I.", 1, 4, 5, 4, 3, 5},
+        {"Johnson Y.R.", 2, 5, 5, 4, 5, 5},
+        {"Williams V.A.", 1, 4, 4, 3, 4, 5},
+        {"Brown G.G.", 2, 3, 4, 5, 3, 4},
+        {"Jones D.S.", 1, 5, 5, 5, 5, 5},
+        {"Garcia W.R.", 2, 4, 3, 4, 4, 5},
+        {"Miller J.V.", 1, 5, 4, 5, 4, 5},
+        {"Davis I.I.", 2, 4, 3, 3, 4, 4},
+        {"Rodriguez K.S.", 1, 3, 4, 5, 4, 3},
+        {"Martinez Z.A.", 2, 5, 5, 4, 5, 5}
     };
 
     // Упорядочивание записей по возрастанию среднего балла
     std::sort(students, students + 10, compareByAverageGrade);
 
     // Вывод отсортированного массива
-    std::cout << "Упорядоченные записи по возрастанию среднего балла:\n";
+    std::cout << "Ordered entries in ascending order of the average score:\n";
     for (int i = 0; i < 10; ++i) {
-        std::cout << std::setw(20) << students[i].name << "\tГруппа: " << students[i].groupNumber << "\tСредний балл: " << students[i].averageGrade << "\n";
+        std::cout << std::setw(20) << students[i].name << "\tGroup: " << students[i].groupNumber << "\tAverage score: " << students[i].averageGrade << "\n";
     }
 
     // Вывод студентов с оценками 4 и 5
     printHighAchievers(students, 10);
 
+    system("pause");
     return 0;
 }

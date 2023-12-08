@@ -39,37 +39,37 @@ struct Train {
 void printTrainInfo(const Train trains[], int size, int trainNumber) {
     for (int i = 0; i < size; ++i) {
         if (trains[i].trainNumber == trainNumber) {
-            std::cout << "Номер поезда: " << trains[i].trainNumber << "\n";
-            std::cout << "Пункт назначения: " << trains[i].destination << "\n";
-            std::cout << "Время отправления: " << trains[i].departureTime << "\n";
+            std::cout << "Train number: " << trains[i].trainNumber << "\n";
+            std::cout << "Destination: " << trains[i].destination << "\n";
+            std::cout << "Departure time: " << trains[i].departureTime << "\n";
             return;
         }
     }
-    std::cout << "Поезд с номером " << trainNumber << " не найден.\n";
+    std::cout << "Train number " << trainNumber << " has not been found.\n";
 }
 
 int main() {
     // Создание массива структур Train
     Train trains[5] = {
-        {"Москва", 102, "10:30"},
-        {"Санкт-Петербург", 215, "12:45"},
-        {"Казань", 125, "09:15"},
-        {"Екатеринбург", 330, "14:05"},
-        {"Екатеринбург", 142, "14:00"}
+        {"Cambridge", 102, "10:30"},
+        {"Liverpool", 215, "12:45"},
+        {"Sudbury", 125, "09:15"},
+        {"Stratford", 330, "14:05"},
+        {"Stratford", 142, "14:00"}
     };
 
     // Упорядочивание элементов по номерам поездов
     std::sort(trains, trains + 5);
 
     // Вывод отсортированного массива по номерам поездов
-    std::cout << "Упорядоченные записи по номерам поездов:\n";
+    std::cout << "Ordered entries by train numbers:\n";
     for (int i = 0; i < 5; ++i) {
-        std::cout << "Номер поезда: " << trains[i].trainNumber << "\tПункт назначения: " << trains[i].destination << "\tВремя отправления: " << trains[i].departureTime << "\n";
+        std::cout << "Train number: " << trains[i].trainNumber << "\tDestination: " << trains[i].destination << "\tDeparture time: " << trains[i].departureTime << "\n";
     }
 
     // Ввод номера поезда для вывода информации
     int inputTrainNumber;
-    std::cout << "Введите номер поезда для получения информации: ";
+    std::cout << "Enter train number for information: ";
     std::cin >> inputTrainNumber;
 
     // Вывод информации о введенном поезде
@@ -79,10 +79,11 @@ int main() {
     std::sort(trains, trains + 5);
 
     // Вывод отсортированного массива по пункту назначения и времени отправления
-    std::cout << "\nУпорядоченные записи по пункту назначения и времени отправления:\n";
+    std::cout << "\nOrdered records by destination and departure time:\n";
     for (int i = 0; i < 5; ++i) {
-        std::cout << "Номер поезда: " << trains[i].trainNumber << "\tПункт назначения: " << trains[i].destination << "\tВремя отправления: " << trains[i].departureTime << "\n";
+        std::cout << "Train number: " << trains[i].trainNumber << "\tDestination: " << trains[i].destination << "\tDeparture time: " << trains[i].departureTime << "\n";
     }
+
 
     return 0;
 }

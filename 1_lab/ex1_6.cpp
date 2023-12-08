@@ -14,10 +14,10 @@ int main() {
     double currentNumber, maxNumber = -1;
 
     // Ввод чисел и определение максимального с использованием do while
-    std::cout << "Введите последовательность положительных чисел. Для завершения введите отрицательное число.\n";
+    std::cout << "Enter a sequence of positive numbers. To complete, enter a negative number.\n";
 
     do {
-        std::cout << "Введите число: ";
+        std::cout << "Enter the number: ";
         std::cin >> currentNumber;
 
         // Проверка на отрицательное число для завершения ввода
@@ -34,10 +34,11 @@ int main() {
 
     // Вывод результата
     if (maxNumber >= 0) {
-        std::cout << "Максимальное число из введенной последовательности: " << maxNumber << "\n";
+        std::cout << "The maximum number from the entered sequence: " << maxNumber << "\n";
     } else {
-        std::cout << "Не введено положительных чисел.\n";
+        std::cout << "No positive numbers entered.\n";
     }
 
+    system("pause");
     return 0;
 }

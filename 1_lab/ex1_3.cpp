@@ -16,18 +16,18 @@ int main() {
     double a, b, c;
 
     // Ввод коэффициентов
-    std::cout << "Введите коэффициент a: ";
+    std::cout << "Enter the coefficient a: ";
     std::cin >> a;
 
-    std::cout << "Введите коэффициент b: ";
+    std::cout << "Enter the coefficient b: ";
     std::cin >> b;
 
-    std::cout << "Введите коэффициент c: ";
+    std::cout << "Enter the coefficient c: ";
     std::cin >> c;
 
     // Проверка на правильность исходных данных
     if (a == 0) {
-        std::cout << "Коэффициент при второй степени неизвестного не может быть равен нулю. Уравнение не является квадратным.\n";
+        std::cout << "The coefficient for the second degree of the unknown cannot be zero. The equation is not square.\n";
         return 0;
     }
 
@@ -39,18 +39,19 @@ int main() {
         // Два корня
         double x1 = (-b + sqrt(discriminant)) / (2 * a);
         double x2 = (-b - sqrt(discriminant)) / (2 * a);
-        std::cout << "Уравнение имеет два корня:\n";
-        std::cout << "Корень 1 = " << x1 << "\n";
-        std::cout << "Корень 2 = " << x2 << "\n";
+        std::cout << "The equation has two roots:\n";
+        std::cout << "Root 1 = " << x1 << "\n";
+        std::cout << "Root 2 = " << x2 << "\n";
     } else if (discriminant == 0) {
         // Один корень
         double x = -b / (2 * a);
-        std::cout << "Уравнение имеет один корень:\n";
-        std::cout << "Корень = " << x << "\n";
+        std::cout << "The equation has one root:\n";
+        std::cout << "Root = " << x << "\n";
     } else {
         // Нет действительных корней
-        std::cout << "Уравнение не имеет действительных корней.\n";
+        std::cout << "The equation has no real roots.\n";
     }
 
+    system("pause");
     return 0;
 }

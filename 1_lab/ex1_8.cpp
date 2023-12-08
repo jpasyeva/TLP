@@ -61,7 +61,7 @@ int main() {
     fillArray(array);
 
     // Вывод массива
-    std::cout << "Двумерный массив:\n";
+    std::cout << "Two-dimensional array:\n";
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; ++j) {
             std::cout << array[i][j] << "\t";
@@ -71,11 +71,12 @@ int main() {
 
     // Нахождение и вывод максимального элемента
     int maxElement = findMaxElement(array);
-    std::cout << "Максимальный элемент в массиве: " << maxElement << "\n";
+    std::cout << "The maximum element in the array: " << maxElement << "\n";
 
     // Нахождение и вывод минимального элемента
     int minElement = findMinElement(array);
-    std::cout << "Минимальный элемент в массиве: " << minElement << "\n";
+    std::cout << "The minimum element in the array: " << minElement << "\n";
 
+    system("pause");
     return 0;
 }

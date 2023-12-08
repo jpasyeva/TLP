@@ -11,15 +11,16 @@ int main() {
     int number;
 
     // Ввод числа
-    std::cout << "Введите число: ";
+    std::cout << "Enter the number: ";
     std::cin >> number;
 
     // Проверка на четность
     if (number % 2 == 0) {
-        std::cout << "Число  " << number << " является четным.\n";
+        std::cout << "The number is " << number << " even.\n";
     } else {
-        std::cout << "Число " << number << " является нечетным.\n";
+        std::cout << "The number is " << number << " odd.\n";
     }
 
+    system("pause");
     return 0;
 }
