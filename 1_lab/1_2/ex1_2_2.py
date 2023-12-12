@@ -1,3 +1,5 @@
+print("Enter string")
+input_string = input()
 def is_palindrome(s):
     # Приводим строку к нижнему регистру и удаляем пробелы с использованием replace
     s = s.lower().replace(" ", "")
@@ -6,7 +8,7 @@ def is_palindrome(s):
     return s == s[::-1]
 
 # Пример использования
-input_string = "blackcat"
+#input_string = "blackcat"
 result = is_palindrome(input_string)
 
 if not result:
