@@ -1,3 +1,6 @@
+print("Enter intenger")
+number = int(input())
+
 def int_to_roman(num):
     # Значения и символы для представления чисел в римской системе
     val = [
@@ -29,6 +32,6 @@ def int_to_roman(num):
     return roman_num
 
 # Пример использования функции с числом 1945
-number = 1945
+#number = 1945
 roman_representation = int_to_roman(number)
 print(f'Число {number} в римской системе счисления: {roman_representation}')
