@@ -1,3 +1,6 @@
+print("Введите скобки в формате [{}({})]")
+expression = input()
+
 def is_valid_expression(s):
     # Инициализация стека для отслеживания открывающих скобок
     stack = []
@@ -20,7 +23,7 @@ def is_valid_expression(s):
     return not stack
 
 # Пример использования функции
-expression = "[()"
+#expression = "[()"
 result = is_valid_expression(expression)
 
 # Вывод результата

@@ -7,15 +7,14 @@ def get_vacancies():
     json_data = []
     
     # Цикл по страницам для получения вакансий (ограничение до 100 страниц для примера)
-    for page in range(1, 100):
+    for page in range(1, 10):
         # URL API HeadHunter для получения вакансий
         url = "https://api.hh.ru/vacancies"
         
         # Параметры запроса, в данном случае ищем вакансии Python разработчика в Москве
         params = {
             "text": "Python разработчик",
-            "area": 113,  # Код региона (1 - Москва)
-            "per_page": 100,  # Количество вакансий на странице
+            "per_page": 10,  # Количество вакансий на странице
             "page": page  # Номер страницы
         }
         
@@ -74,7 +73,7 @@ def get_vacancies():
 
 def write_json(data):
     # Запись данных в файл JSON
-    with open('data.json', 'a', encoding='utf-8') as file:
+    with open('hh_vacancies.json', 'a', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
 if __name__ == '__main__':

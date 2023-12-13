@@ -2,5 +2,7 @@
 .vscode/settings.json
 .vscode/launch.json
 .vscode/c_cpp_properties.json
-1_lab/ex1_2.exe
 *.exe
+tlp_labs
+data.json
+hh_vacancies.json

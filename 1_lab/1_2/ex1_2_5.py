@@ -1,3 +1,8 @@
+print("Введите первое бинарное число")
+binary_string1 = input()
+print("Введите второе бинарное число")
+binary_string2 = input()
+
 def multiply_binary_strings(x1, x2):
     # Преобразуем бинарные строки в целые числа
     num1 = int(x1, 2)
@@ -12,8 +17,8 @@ def multiply_binary_strings(x1, x2):
     return result_binary
 
 # Пример использования
-binary_string1 = "111"
-binary_string2 = "101"
+#binary_string1 = "111"
+#binary_string2 = "101"
 result = multiply_binary_strings(binary_string1, binary_string2)
 
 print(f'Произведение бинарных чисел {binary_string1} и {binary_string2}: {result}') 
