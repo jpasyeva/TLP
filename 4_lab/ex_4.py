@@ -5,8 +5,7 @@ from tabulate import tabulate
 
 
 conn = psycopg2.connect(
-    "host=localhost dbname=theory_of_programming_languages port=5432 user=postgres password=1337")
-
+    "host=localhost dbname=lab4 port=32773 user=postgres password=password")
 
 def start(conn):
     cur = conn.cursor()
@@ -87,6 +86,7 @@ def add_department(conn):
 
 """Уникальный номер сотрудника, его ФИО и стаж работы – для всех сотрудников компании"""
 def get_employees(conn):
+    print("Уникальный номер сотрудника, его ФИО и стаж работы – для всех сотрудников компании")
     date = datetime.date.today()
     cur = conn.cursor()
     cur.execute(f"SELECT id, full_name, (CAST('{date}' AS date) - CAST(started AS date))/365 FROM employees")
@@ -94,6 +94,7 @@ def get_employees(conn):
 
 """Уникальный номер сотрудника, его ФИО и стаж работы – только первых 3-х сотрудников"""
 def get_first_three_employees(conn):
+    print("Уникальный номер сотрудника, его ФИО и стаж работы – только первых 3-х сотрудников")
     date = datetime.date.today()
     cur = conn.cursor()
     cur.execute(f"SELECT id, full_name, (CAST('{date}' AS date) - CAST(started AS date))/365 FROM employees \
@@ -102,6 +103,7 @@ def get_first_three_employees(conn):
 
 """Уникальный номер сотрудников - водителей"""
 def get_employees_with_permission(conn):
+    print("Уникальный номер сотрудников - водителей")
     cur = conn.cursor()
     cur.execute("SELECT id, permission FROM employees \
                 WHERE employees.permission")
@@ -109,6 +111,7 @@ def get_employees_with_permission(conn):
 
 """Выведите номера сотрудников, которые хотя бы за 1 квартал получили оценку D или E"""
 def get_employees_with_d_e(conn):
+    print("Номера сотрудников, которые хотя бы за 1 квартал получили оценку D или E")
     cur = conn.cursor()
     cur.execute("SELECT e.id, p.evaluation \
                 FROM employees AS e FULL JOIN performanse_evals AS p \
@@ -118,6 +121,7 @@ def get_employees_with_d_e(conn):
 
 """Выведите самую высокую зарплату в компании."""
 def get_max_salary(conn):
+    print("Cамая высокая зарплата в компании")
     cur = conn.cursor()
     cur.execute("SELECT MAX(salary) FROM employees")
     print(tabulate(cur.fetchall()))
@@ -135,6 +139,7 @@ get_max_salary(conn)
 
 """Вывести фамилию сотрудника с самой высокой зарплатой."""
 def get_employee_with_max_salary(conn):
+    print("Фамилия сотрудника с самой высокой зарплатой")
     cur = conn.cursor()
     cur.execute("SELECT full_name, salary FROM employees \
                 ORDER BY salary DESC \
@@ -143,6 +148,7 @@ def get_employee_with_max_salary(conn):
 
 """Вывести фамилии сотрудников в алфавитном порядке"""
 def get_employees_sorted(conn):
+    print("Фамилии сотрудников в алфавитном порядке")
     cur = conn.cursor()
     cur.execute("SELECT full_name FROM employees \
                 ORDER BY full_name")
@@ -150,6 +156,7 @@ def get_employees_sorted(conn):
 
 """Рассчитайте средний стаж для каждого уровня сотрудников"""
 def get_aver_exp_for_level(conn):
+    print("Средний стаж для каждого уровня сотрудников")
     date = datetime.date.today()
     cur = conn.cursor()
     cur.execute(f"SELECT level, AVG((CAST('{date}' AS date) - CAST(started AS date))/365) AS average_experience \
@@ -159,12 +166,14 @@ def get_aver_exp_for_level(conn):
 
 """Выведите фамилию сотрудника и название отдела, в котором он работает"""
 def get_employees_with_departments(conn):
+    print("Фамилии сотрудников и название отделов, в котором они работают")
     cur = conn.cursor() 
     cur.execute("SELECT full_name, department_name FROM employees")
     print(tabulate(cur.fetchall()))
 
 """Выведите название отдела и фамилию сотрудника с самой высокой зарплатой в данном отделе и саму зарплату также"""
 def get_employee_department_with_max_salary(conn):
+    print("Название отдела и фамилия сотрудника с самой высокой зарплатой в данном отделе и его зарплата")
     cur = conn.cursor()
     cur.execute("SELECT department_name, full_name, salary FROM employees \
                 ORDER BY salary DESC \
