@@ -84,6 +84,6 @@ int main() {
         std::cout << "Train number: " << trains[i].trainNumber << "\tDestination: " << trains[i].destination << "\tDeparture time: " << trains[i].departureTime << "\n";
     }
 
-
+    system("pause");
     return 0;
 }

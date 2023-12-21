@@ -9,7 +9,7 @@
 
 int main() {
     // Вывод заголовка таблицы
-    std::cout << "Number\tsSquare\n";
+    std::cout << "Number\tSquare\n";
 
     // Вывод квадратов десяти первых положительных чисел
     for (int i = 1; i <= 10; ++i) {
