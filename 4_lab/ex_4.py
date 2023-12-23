@@ -5,7 +5,7 @@ from tabulate import tabulate
 
 
 conn = psycopg2.connect(
-    "host=localhost dbname=lab4 port=32773 user=postgres password=password")
+    "host=localhost dbname=lab4 port=32776 user=postgres password=pass")
 
 def start(conn):
     cur = conn.cursor()
@@ -24,7 +24,7 @@ def start(conn):
         )
         conn.commit()
         cur.execute(
-            'CREATE TABLE performanse_evals( \
+            'CREATE TABLE KPI( \
             id serial primary key, employee_id integer, \
             working_quarter integer, evaluation varchar)'
         )
@@ -36,10 +36,10 @@ def start(conn):
             ('Jaylee Oconnor', '2020-05-01', 'Chief Marketer', 'Middle', 2000, 'Marketing Department', False), \
             ('Alena Mccann', '2020-06-10', 'Human Resources', 'Senior', 2000, 'HR Department', False), \
             ('Nikolas Crosby', '2020-06-10', 'Buisness Analyst', 'Middle', 1500, 'Management Department', True), \
-            ('Amani Holden', '2020-06-25', 'Quality Assure', 'Jun', 900, 'IT Department', True), \
-            ('Jayleen Shaw', '2020-06-25', 'Recruiter', 'Jun', 800, 'HR department', False), \
+            ('Amani Holden', '2020-06-25', 'Quality Assure', 'Junior', 900, 'IT Department', True), \
+            ('Jayleen Shaw', '2020-06-25', 'Recruiter', 'Junior', 800, 'HR department', False), \
             ('Kelsie Wang', '2020-07-05', 'Frontend Developer', 'Middle', 1500, 'IT Department', True),  \
-            ('Andres Bell', '2020-07-15', 'Backend Developer', 'Jun', 1500, 'IT Department', True)"
+            ('Andres Bell', '2020-07-15', 'Backend Developer', 'Junior', 1500, 'IT Department', True)"
         )
         conn.commit() 
         cur.execute(
@@ -49,7 +49,7 @@ def start(conn):
         )
         conn.commit()
         cur.execute(
-            "INSERT INTO performanse_evals (employee_id, working_quarter, evaluation) VALUES \
+            "INSERT INTO KPI (employee_id, working_quarter, evaluation) VALUES \
             (1, 2, 'A'), (1, 3, 'B'), (1, 4, 'A'), (1, 1, 'B'), (1, 2, 'A'), (1, 3, 'A'), \
             (2, 2, 'B'), (2, 3, 'B'), (2, 4, 'A'), (2, 1, 'A'), (2, 2, 'C'), (2, 3, 'B'), \
             (3, 2, 'A'), (3, 3, 'A'), (3, 4, 'B'), (3, 1, 'B'), (3, 2, 'A'), (3, 3, 'A'), \
@@ -75,7 +75,9 @@ def add_department(conn):
     cur.execute(
         "INSERT INTO employees (full_name, started, job_title, level, salary, department_name, permission) VALUES\
         ('Santino Blanchard', '2020-07-20', 'Data Scientist', 'Middle', 2500, 'Data Mining Department', True), \
-        ('Gordon Donovan', '2020-07-25', 'Data Analyst', 'Senior', 2000, 'Data Mining Department', True)"
+        ('Gordon Donovan', '2020-07-25', 'Data Analyst', 'Senior', 3000, 'Data Mining Department', True), \
+        ('Julia Donovan', '2020-07-25', 'Data Analyst', 'Junior', 200, 'Data Mining Department', True)",
+        
     )
     conn.commit() 
     cur.execute(
@@ -114,7 +116,7 @@ def get_employees_with_d_e(conn):
     print("Номера сотрудников, которые хотя бы за 1 квартал получили оценку D или E")
     cur = conn.cursor()
     cur.execute("SELECT e.id, p.evaluation \
-                FROM employees AS e FULL JOIN performanse_evals AS p \
+                FROM employees AS e FULL JOIN KPI AS p \
                 ON e.id = p.employee_id \
                 WHERE p.evaluation = 'D'")
     print(tabulate(cur.fetchall()))
@@ -175,9 +177,8 @@ def get_employees_with_departments(conn):
 def get_employee_department_with_max_salary(conn):
     print("Название отдела и фамилия сотрудника с самой высокой зарплатой в данном отделе и его зарплата")
     cur = conn.cursor()
-    cur.execute("SELECT department_name, full_name, salary FROM employees \
-                ORDER BY salary DESC \
-                LIMIT 1")
+    cur.execute("SELECT DISTINCT department_name, full_name, salary FROM employees \
+                ORDER BY salary DESC")
     print(tabulate(cur.fetchall()))
 
 get_employee_with_max_salary(conn)
